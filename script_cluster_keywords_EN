@@ -1,0 +1,18 @@
+import cohere # Import the cohere library to use the cohere.ai API
+import matplotlib.pyplot as plt # Import the matplotlib library to create the graph
+
+# Use the cohere.ai API to extract the word embeddings
+co = cohere.Client('XXXXXXXXXXX') # Create an instance of cohere using our API key
+words = ['marketing','digital','seo','serp','datascience','python','new york','crypto','bitcoin','ethereum'] # Define the words for which we want the embeddings
+response = co.embed(model='large', texts=words) # Use the embed method of the cohere API and specify the 'large' model for the embeddings
+embeddings = response.embeddings # Get the embeddings in the embeddings variable
+
+x = [embed[0] for embed in embeddings] # Create a list x containing the first value of each embedding
+y = [embed[1] for embed in embeddings] # Create a list y containing the second value of each embedding
+
+# Use matplotlib to create the bubble chart
+plt.figure(figsize=(20,10)) # Use the figure method to increase the size of the graph
+plt.scatter(x, y, s=500, c='green') # Use the scatter method to create the bubble chart and specify the lists x and y, the size of the bubbles (s) and the color of the bubbles (c)
+for i, word in enumerate(words): # Use the enumerate function to iterate over the words
+    plt.annotate(word, (x[i], y[i]), fontsize=20) # Use the annotate method to add the words on the graph and specify the word, the position (x[i], y[i]) and the font size
+plt.show() # Use the show method to display the graph
