@@ -1,4 +1,7 @@
 # clustering-keywords
+
+EN :
+
 Discover how to cluster a list of keywords with Python and the cohere.ia tool !
 
 This code is a first step in creating a way to cluster keywords using Python and AI (thanks to Cohere, OPEN.AI's first competitor)
